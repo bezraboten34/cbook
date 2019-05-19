@@ -1,25 +1,22 @@
 /* 
 Exercise 1-3. Print Fahrenheit-Celsius table
-v1
+v2
 */
 #include <stdio.h>
 
+#define LOWER  0     /* lower limit of table */ 
+#define UPPER  300   /* upper limit */
+#define STEP   20    /* step size */
+
 int main(){
 
-    float fahr, celsius;
-    float lower = 0.0f;
-    float upper = 300.0f;
-    float step = 20.0f;
+    int fahr;
 
     printf("fahr celsius\n");
-
-    fahr = lower;
-    while(fahr <= upper){
-        celsius = (5.0f/9.0f) * (fahr - 32.0f);
-        printf("%3.0f %6.1f\n", fahr, celsius);
-        fahr += step;
-    }
+    
+    for(fahr = LOWER; fahr <= UPPER; fahr += STEP)
+        printf("%3d %6.1f\n", fahr, (5.0f/9.0f) * (fahr - 32.0f));
+    
     char c = getchar();
-
     return 0;
 }
